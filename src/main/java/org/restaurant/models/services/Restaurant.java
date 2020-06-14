@@ -5,6 +5,7 @@ import org.restaurant.models.MealDatabase;
 import org.restaurant.models.OrderR;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,15 +24,21 @@ public class Restaurant {
 
      public int calculateOrderPrice(OrderR orderR){
         int sum = 0;
+        ArrayList<Meal> menu = new ArrayList<>(orderR.getMealList());
+         for (Meal meal:menu
+              ) { sum = sum + meal.getPrice();
+
+         }
         //todo implement
         return sum;
     }
 
     public Meal getMeal(String mealName){
-        Meal test = null;
-        for (Meal meal:menu
+        Meal test = new Meal();
+        MealDatabase mealDatabase = new MealDatabase();
+        for (Meal meal:mealDatabase.getMeals()
              ) {
-            if (meal.equals(mealName)) {
+            if (mealName.equals(meal.getName())) {
               test = meal;
             }
 
