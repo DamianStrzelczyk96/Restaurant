@@ -54,11 +54,11 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public boolean checkIfMealAppearInOurOrder(OrderR order, Meal meal){
         //todo repair
-        for (int i = 0; i > order.getMealList().size(); i++) {
+        for (int i = 0; i < order.getMealList().size(); i++) {
             if (order.getMealList().get(i).equals(meal)){
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 }

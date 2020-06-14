@@ -28,8 +28,16 @@ public class Restaurant {
     }
 
     public Meal getMeal(String mealName){
+        Meal test = null;
+        for (Meal meal:menu
+             ) {
+            if (meal.equals(mealName)) {
+              test = meal;
+            }
+
+        }
         //todo implement
-        return null;
+        return test;
     }
 
     public List<Meal> getMenu() {
