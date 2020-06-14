@@ -41,13 +41,19 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public void addMealToOrder(OrderR order, Meal meal) {
         //todo repair
-        Set<Meal> ourMeals = (Set<Meal>) order.getMealList();
+
+
+        ArrayList<Meal> ourMeals = (ArrayList<Meal>) order.getMealList();
         ourMeals.add(meal);
-        order.setMealList((List<Meal>)ourMeals);
+        System.out.println(ourMeals);
+        order.setMealList(ourMeals);
     }
 
     @Override
     public void removeMealFromOrder(OrderR order, Meal meal) {
+        ArrayList<Meal> ourMeals = (ArrayList<Meal>) order.getMealList();
+        ourMeals.remove(meal);
+        order.setMealList(ourMeals);
         //todo implement
     }
 
